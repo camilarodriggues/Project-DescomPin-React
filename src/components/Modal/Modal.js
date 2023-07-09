@@ -2,10 +2,9 @@ import React from 'react';
 import ModalBS from 'react-bootstrap/Modal';
 import { Button } from '../Button/Button';
 
-
-export const Modal = ({ title, children, open, controls = [] }) => {
+export const Modal = ({ title, children, open, onHide, controls = [] }) => {
   return (
-    <ModalBS show={open} onHide={() => {}}>
+    <ModalBS show={open} onHide={onHide}>
       <ModalBS.Header closeButton>
         <ModalBS.Title>{title}</ModalBS.Title>
       </ModalBS.Header>
@@ -15,10 +14,9 @@ export const Modal = ({ title, children, open, controls = [] }) => {
           <Button
             key={controlIndex}
             {...control}
-          >
-          </Button> 
+          />
         ))}
       </ModalBS.Footer>
     </ModalBS>
   );
-}
+};
